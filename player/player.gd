@@ -50,10 +50,11 @@ func _process(_delta: float) -> void:
 			_selected_block -= 1
 		if Input.is_action_just_pressed(&"next_block"):
 			_selected_block += 1
-		_selected_block = wrapi(_selected_block, 1, 30)
+		_selected_block = wrapi(_selected_block, 1, 64)
 	# Set the appropriate texture.
 	var uv := Chunk.calculate_block_uvs(_selected_block)
-	selected_block_texture.texture.region = Rect2(uv[0] * 512, Vector2.ONE * 64)
+	selected_block_texture.texture.region = Rect2(
+		uv[0] * Chunk.ATLAS_HEIGHT, Vector2.ONE * Chunk.TILE_HEIGHT)
 
 	# Block breaking/placing.
 	if crosshair.visible and raycast.is_colliding():
@@ -120,10 +121,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = MOVEMENT_JUMP_VELOCITY
 
 
-func _input(input_event: InputEvent) -> void:
-	if input_event is InputEventMouseMotion:
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			_mouse_motion += input_event.screen_relative
+			_mouse_motion += event.screen_relative
 
 
 func chunk_pos() -> Vector3i:

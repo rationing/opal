@@ -3,11 +3,17 @@ extends StaticBody3D
 # These chunks are instanced and given data by VoxelWorld.
 # After that, chunks finish setting themselves up in the _ready() function.
 # If a chunk is changed, its "regenerate" method is called.
-
 const CHUNK_SIZE := 16 # Keep in sync with TerrainGenerator.
-const TEXTURE_SHEET_WIDTH := 8
+
+# The original template is not scalable. One change I had to make
+# was the creation of the three constants below to accommodate the
+# new atlas and future atlas expansions
+const TILES_PER_ROW := 32
+const TILE_HEIGHT := 32
+const ATLAS_HEIGHT := 1024
+
 const CHUNK_LAST_INDEX := CHUNK_SIZE - 1
-const TEXTURE_TILE_SIZE := 1.0 / TEXTURE_SHEET_WIDTH
+const TEXTURE_TILE_SIZE := 1.0 / TILES_PER_ROW
 const CHUNK_EXTENTS := Vector3.ONE / 2.0
 const DIRECTIONS: Array[Vector3i] = [Vector3i.LEFT, Vector3i.RIGHT, Vector3i.DOWN, Vector3i.UP, Vector3i.FORWARD, Vector3i.BACK]
 
@@ -222,8 +228,8 @@ func _create_block_collider(block_sub_position: Vector3) -> void:
 static func calculate_block_uvs(block_id: int) -> Array[Vector2]:
 	# This method only supports square texture sheets.
 	@warning_ignore("integer_division")
-	var row := block_id / TEXTURE_SHEET_WIDTH
-	var col := block_id % TEXTURE_SHEET_WIDTH
+	var row := block_id / TILES_PER_ROW
+	var col := block_id % TILES_PER_ROW
 
 	return [
 			# Godot 4 has a weird bug where there are seams at the edge
