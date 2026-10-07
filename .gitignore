@@ -1,5 +1,6 @@
-# Avoid uploading my friend's PNG files 
+# Avoid uploading my friend's PNG and WAV files 
 *.png
+*.wav
 
 # Ignore the .godot folder to avoid bloating the repository with generated data
 .godot/
