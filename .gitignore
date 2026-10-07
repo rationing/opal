@@ -1,0 +1,5 @@
+# Avoid uploading my friend's PNG files 
+*.png
+
+# Ignore the .godot folder to avoid bloating the repository with generated data
+.godot/
