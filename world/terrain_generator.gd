@@ -14,7 +14,8 @@ static func random_blocks() -> Dictionary[Vector3i, int]:
 			for z in Chunk.CHUNK_SIZE:
 				var vec := Vector3i(x, y, z)
 				if randf() < RANDOM_BLOCK_PROBABILITY:
-					random_data[vec] = randi() % 29 + 1
+					# You need to add 1 becuase 0 is air
+					random_data[vec] = randi() % Chunk.TILES_PER_ROW ** 2 + 1
 
 	return random_data
 

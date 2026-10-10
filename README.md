@@ -1,6 +1,6 @@
 # Opal
 
-Hi. I'm Rationing. I started this project with the
+Hi. My username is  Rationing. I started this project with the
 [Voxel Game Demo from the Godot Foundation](https://store.godotengine.org/asset/godot-foundation/voxel-game-demo).
 
 Because of that, the LICENSE.md file mentions people that I have

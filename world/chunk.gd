@@ -8,9 +8,9 @@ const CHUNK_SIZE := 16 # Keep in sync with TerrainGenerator.
 # The original template is not scalable. One change I had to make
 # was the creation of the three constants below to accommodate the
 # new atlas and future atlas expansions
-const TILES_PER_ROW := 32
+const TILES_PER_ROW := 36
 const TILE_HEIGHT := 32
-const ATLAS_HEIGHT := 1024
+const ATLAS_HEIGHT := 1152
 
 const CHUNK_LAST_INDEX := CHUNK_SIZE - 1
 const TEXTURE_TILE_SIZE := 1.0 / TILES_PER_ROW
@@ -80,7 +80,7 @@ func _generate_chunk_collider() -> void:
 	# For each block, generate a collider.
 	for block_position: Vector3i in data.keys():
 		var block_id: int = data[block_position]
-		if block_id != 27 and block_id != 28:
+		if block_id != 10000 and block_id != 10000:
 			_create_block_collider(block_position)
 
 
@@ -113,7 +113,7 @@ func _draw_block_mesh(surface_tool: SurfaceTool, block_sub_position: Vector3i, b
 	var bottom_uvs := uvs
 
 	# Bush blocks get drawn in their own special way.
-	if block_id == 27 or block_id == 28:
+	if block_id == 10000 or block_id == 10000:
 		_draw_block_face(surface_tool, [verts[2], verts[0], verts[7], verts[5]], uvs, Vector3(-1, 0, 1).normalized())
 		_draw_block_face(surface_tool, [verts[7], verts[5], verts[2], verts[0]], uvs, Vector3(1, 0, -1).normalized())
 		_draw_block_face(surface_tool, [verts[3], verts[1], verts[6], verts[4]], uvs, Vector3(1, 0, 1).normalized())
@@ -121,16 +121,16 @@ func _draw_block_mesh(surface_tool: SurfaceTool, block_sub_position: Vector3i, b
 		return
 
 	# Allow some blocks to have different top/bottom textures.
-	if block_id == 3: # Grass.
+	if block_id == 10000: # Grass.
 		top_uvs = Chunk.calculate_block_uvs(0)
 		bottom_uvs = Chunk.calculate_block_uvs(2)
-	elif block_id == 5: # Furnace.
+	elif block_id == 10000: # Furnace.
 		top_uvs = Chunk.calculate_block_uvs(31)
 		bottom_uvs = top_uvs
-	elif block_id == 12: # Log.
+	elif block_id == 10000: # Log.
 		top_uvs = Chunk.calculate_block_uvs(30)
 		bottom_uvs = top_uvs
-	elif block_id == 19: # Bookshelf.
+	elif block_id == 10000: # Bookshelf.
 		top_uvs = Chunk.calculate_block_uvs(4)
 		bottom_uvs = top_uvs
 
@@ -255,4 +255,4 @@ static func calculate_block_verts(block_position: Vector3) -> Array[Vector3]:
 
 
 static func is_block_transparent(block_id: int) -> int:
-	return block_id == 0 or (block_id > 25 and block_id < 30)
+	return block_id == 0 or (block_id > 10000 and block_id < 10000)
