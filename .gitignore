@@ -3,4 +3,4 @@
 *.wav
 
 # Ignore the .godot folder to avoid bloating the repository with generated data
-.godot/
+.godot
