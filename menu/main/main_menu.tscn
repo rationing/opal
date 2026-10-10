@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://brpqdoaqif71t"]
 
-[ext_resource type="Texture2D" uid="uid://c2althd56ctja" path="res://menu/main/title.png" id="1"]
-[ext_resource type="Script" uid="uid://cdn48g23sfyhw" path="res://menu/main/splash_text.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bik2ri3cg5hjo" path="res://menu/main/title.png" id="1"]
 [ext_resource type="Script" uid="uid://dwgsx63kr20w0" path="res://menu/main/main_menu.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://dn743duneoq25" path="res://menu/main/dark_dirt.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://e1uhrokfxt66" path="res://menu/main/title-background.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://b1qshhfft682v" path="res://menu/options/options.tscn" id="5"]
 [ext_resource type="Theme" uid="uid://c52ndra5ud4ew" path="res://menu/theme/theme.tres" id="6"]
 [ext_resource type="Texture2D" uid="uid://bhusj53g8wnev" path="res://menu/button.png" id="7"]
@@ -28,10 +27,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4")
-stretch_mode = 1
 
 [node name="TitleScreen" type="VBoxContainer" parent="." unique_id=1927314955]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -43,38 +42,11 @@ custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 
 [node name="Logo" type="TextureRect" parent="TitleScreen/Logo" unique_id=590527103]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 texture = ExtResource("1")
-
-[node name="SplashHolder" type="Control" parent="TitleScreen/Logo/Logo" unique_id=1858011881]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_right = -36.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("2")
-
-[node name="SplashText" type="Label" parent="TitleScreen/Logo/Logo/SplashHolder" unique_id=446975779]
-modulate = Color(1, 1, 0, 1)
-texture_filter = 1
-layout_mode = 0
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -120.0
-offset_right = 124.0
-offset_bottom = 52.0
-grow_horizontal = 0
-grow_vertical = 0
-rotation = -0.261799
-theme_override_font_sizes/font_size = 61
-text = "Made in Godot!"
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ButtonHolder" type="HBoxContainer" parent="TitleScreen" unique_id=1427850241]
 layout_mode = 2

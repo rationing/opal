@@ -6,8 +6,11 @@ extends Control
 
 
 func _on_Start_pressed() -> void:
-	start.visible = true
+	start.visible = false
 	title.visible = false
+	Settings.world_type = 1
+	get_tree().change_scene_to_packed(preload("res://world/world.tscn"))
+
 
 
 func _on_Options_pressed() -> void:

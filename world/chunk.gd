@@ -230,14 +230,16 @@ static func calculate_block_uvs(block_id: int) -> Array[Vector2]:
 	@warning_ignore("integer_division")
 	var row := block_id / TILES_PER_ROW
 	var col := block_id % TILES_PER_ROW
-
+	const TILE_INSET := 1.0 / TILE_HEIGHT
 	return [
-			# Godot 4 has a weird bug where there are seams at the edge
-			# of the textures. Adding a margin of 0.01 "fixes" it.
-			TEXTURE_TILE_SIZE * Vector2(col + 0.01, row + 0.01),
-			TEXTURE_TILE_SIZE * Vector2(col + 0.01, row + 0.99),
-			TEXTURE_TILE_SIZE * Vector2(col + 0.99, row + 0.01),
-			TEXTURE_TILE_SIZE * Vector2(col + 0.99, row + 0.99),
+			# Top Left
+			TEXTURE_TILE_SIZE * Vector2(col + TILE_INSET, row + TILE_INSET),
+			# Bottom Left
+			TEXTURE_TILE_SIZE * Vector2(col + TILE_INSET, row + 1 - TILE_INSET),
+			# Top Right
+			TEXTURE_TILE_SIZE * Vector2(col + 1 - TILE_INSET, row + TILE_INSET),
+			# Bottom Right
+			TEXTURE_TILE_SIZE * Vector2(col + 1 - TILE_INSET, row + 1 - TILE_INSET),
 		]
 
 

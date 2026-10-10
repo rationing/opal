@@ -22,7 +22,7 @@ static func flat(chunk_position: Vector3i) -> Dictionary[Vector3i, int]:
 		return data
 	for x in Chunk.CHUNK_SIZE:
 		for z in Chunk.CHUNK_SIZE:
-			data[Vector3i(x, 2, z)] = 1214  # Grass.
+			data[Vector3i(x, 2, z)] = 1122  # Testing!
 			data[Vector3i(x, 1, z)] = 1214  # Dirt.
 			data[Vector3i(x, 0, z)] = 1214  # Dirt.
 			data[Vector3i(x, -1, z)] = 1235 # Mantelite
