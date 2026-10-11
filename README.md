@@ -2,9 +2,7 @@
 
 Hi. My username is  Rationing. 
 I started this project with the
-[Voxel Game Demo from the Godot Foundation.](
-https://store.godotengine.org/asset/
-godot-foundation/voxel-game-demo)
+Voxel Game Demo from the Godot Foundation.
 
 Because of that, the LICENSE.md file mentions
 people that I have no connection to. Please 
